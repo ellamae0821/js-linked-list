@@ -7,6 +7,7 @@ function linkedListGenerator(){
 
   var daHead = null;
   var daTail = null;
+  var count = 0;
 
   function getHead() {
     return daHead;
@@ -25,21 +26,51 @@ function linkedListGenerator(){
       daHead = newNode;
       daTail = newNode;
     }else{
-      daTail = newNode.next;
+      daTail.next = newNode; // newNode.next ??? here??
       daTail = newNode;
     }
     return newNode;
   }
 
-
   function get (num){
-
-
+    var getNode = daHead ;
+    for (var i=0; i<num; i++){
+      getNode = getNode.next;
+      if(getNode === null){
+      return false;
+      }
+    }
+    return getNode;
   }
 
-  function remove (){
 
+/*  function remove (num){
+    var removeNode = get(num);
+    var previousNode = get (num - 1);
+    if(num === 0){
+      getHead = getHead.next;
+    }else{
+    previousNode.next = removeNode;
+    }
+  }*/
+
+
+  function remove(num) {
+    var removeNode = get(num);
+    var previousNode = get(num - 1);
+
+    if (num === 0){
+      daHead = daHead.next;
+    }else if (removeNode === daTail){
+      daTail = previousNode;
+      daTail.next = null;
+    }else if (removeNode === false){
+      return false;
+    }else{
+      previousNode.next = removeNode.next;
+    }
   }
+
 
   function insert(){
 
@@ -53,5 +84,6 @@ function linkedListGenerator(){
     get: get,
     insert:insert
   };
-
 }
+
+
