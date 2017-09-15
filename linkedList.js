@@ -71,9 +71,49 @@ function linkedListGenerator(){
     }
   }
 
+/*
+  function insert(value, index){
+    var insertBefore = get(index);
+    var insertAfter = get(index - 1);
+    var newNode  = {
+      value: value,
+      next: insertAfter.next
+    };
+    if (index === 0){
+    newNode = {
+      value: value,
+      next: daHead,
+    };
+    daHead = newNode;
+    }else if (get(index) === false) {
+      return false;
+    }else{
+    insertAfter.next=newNode;
+    newNode.next=insertBefore;
+    }
+  }
+*/
 
-  function insert(){
 
+  function insert(value, index){
+    var insertBefore = get(index);
+    var insertAfter = get(index - 1);
+    var newNode  = {
+      value: value,
+      next: insertAfter.next
+    };
+    if (index === 0){
+    newNode = {
+      value: value,
+      next: daHead,
+    };
+    daHead = newNode;
+    }else if (get(index) === false) {
+      return false;
+    }else {
+    insertAfter.next=newNode;
+    newNode.next=insertBefore;
+    }
   }
 
   return{
@@ -87,3 +127,28 @@ function linkedListGenerator(){
 }
 
 
+
+/*
+
+function insert(Value, num) {
+
+if (num === 0) {
+var newNode1 = {
+value : Value,
+next : linkHead
+};
+linkHead = newNode1;
+} else if (get(num) === false || num < 0) {
+return false;
+} else {
+var placeNode = get(num - 1);
+var newNode = {
+value : Value,
+next : placeNode.next
+};
+placeNode.next = newNode;
+}
+}
+
+
+*/
