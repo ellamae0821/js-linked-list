@@ -31,9 +31,7 @@ function linkedListGenerator(){
     }
     return newNode;
   }
-// add num===0, ret da head
-// else num < 0 return false
-// forloop
+
   function get (num){
     var getNode = daHead ;
     if (num === 0){
@@ -52,18 +50,6 @@ function linkedListGenerator(){
   }
 
 
-
-/*  function remove (num){
-    var removeNode = get(num);
-    var previousNode = get (num - 1);
-    if(num === 0){
-      getHead = getHead.next;
-    }else{
-    previousNode.next = removeNode;
-    }
-  }*/
-
-
   function remove(num) {
     var removeNode = get(num);
     var previousNode = get(num - 1);
@@ -80,29 +66,6 @@ function linkedListGenerator(){
     }
   }
 
-/*
-  function insert(value, index){
-    var insertBefore = get(index);
-    var insertAfter = get(index - 1);
-    var newNode  = {
-      value: value,
-      next: insertAfter.next
-    };
-    if (index === 0){
-    newNode = {
-      value: value,
-      next: daHead,
-    };
-    daHead = newNode;
-    }else if (get(index) === false) {
-      return false;
-    }else{
-    insertAfter.next=newNode;
-    newNode.next=insertBefore;
-    }
-  }
-*/
-
 
   function insert(value, index){
     var insertBefore = get(index);
@@ -117,7 +80,6 @@ function linkedListGenerator(){
       next: daHead,
     };
     daHead = newNode;
-//    daHead.next = newNode;
     }else if (!insertBefore) {
       return false;
     }else {
@@ -138,27 +100,3 @@ function linkedListGenerator(){
 
 
 
-/*
-
-function insert(Value, num) {
-
-if (num === 0) {
-var newNode1 = {
-value : Value,
-next : linkHead
-};
-linkHead = newNode1;
-} else if (get(num) === false || num < 0) {
-return false;
-} else {
-var placeNode = get(num - 1);
-var newNode = {
-value : Value,
-next : placeNode.next
-};
-placeNode.next = newNode;
-}
-}
-
-
-*/
